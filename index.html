@@ -14,11 +14,12 @@ function login() {
   .then(data => {
     if (!data.success) return alert("Invalid Login");
 
-    const role = roleSelect.value;
+    const role = document.getElementById("role").value;
     if (role === "admin") location.href = "admin.html";
     if (role === "security") location.href = "security.html";
     if (role === "member") location.href = "member.html";
   });
 }
 </script>
+
 
