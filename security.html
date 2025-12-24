@@ -1,15 +1,57 @@
-<script>
-const API = "BACKEND_URL";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Panel</title>
 
-function entry() {
-  fetch(API + "/entry", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name: name.value,
-      flat: flat.value,
-      time: new Date().toLocaleString()
-    })
-  }).then(() => alert("Entry Saved"));
-}
-</script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8e1;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    button {
+      background: #ffd600;
+      border: none;
+      padding: 12px;
+      margin: 10px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Security Dashboard</h2>
+
+    <button onclick="markIn()">Mark IN</button>
+    <button onclick="markOut()">Mark OUT</button>
+  </div>
+
+  <script>
+    function markIn() {
+      alert("Entry marked successfully");
+    }
+
+    function markOut() {
+      alert("Exit marked successfully");
+    }
+  </script>
+
+</body>
+</html>
