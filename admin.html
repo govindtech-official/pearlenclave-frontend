@@ -1,0 +1,11 @@
+<script>
+const API = "BACKEND_URL";
+
+fetch(API + "/admin/data")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("data").innerHTML =
+      `Members: ${data.members.length}<br>
+       Transactions: ${data.transactions.length}`;
+  });
+</script>

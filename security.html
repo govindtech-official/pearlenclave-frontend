@@ -1,0 +1,15 @@
+<script>
+const API = "BACKEND_URL";
+
+function entry() {
+  fetch(API + "/entry", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: name.value,
+      flat: flat.value,
+      time: new Date().toLocaleString()
+    })
+  }).then(() => alert("Entry Saved"));
+}
+</script>

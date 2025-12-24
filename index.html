@@ -1,0 +1,23 @@
+<script>
+const API = "BACKEND_URL";
+
+function login() {
+  fetch(API + "/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: document.getElementById("id").value,
+      role: document.getElementById("role").value
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (!data.success) return alert("Invalid Login");
+
+    const role = roleSelect.value;
+    if (role === "admin") location.href = "admin.html";
+    if (role === "security") location.href = "security.html";
+    if (role === "member") location.href = "member.html";
+  });
+}
+</script>
