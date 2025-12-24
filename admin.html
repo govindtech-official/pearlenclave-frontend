@@ -1,11 +1,42 @@
-<script>
-const API = "BACKEND_URL";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pearl Enclave – Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-fetch(API + "/admin/data")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("data").innerHTML =
-      `Members: ${data.members.length}<br>
-       Transactions: ${data.transactions.length}`;
-  });
-</script>
+  <div class="container">
+    <h1>🏢 Pearl Enclave</h1>
+    <h2>Admin Dashboard</h2>
+
+    <div class="card">
+      <h3>Admin Controls</h3>
+
+      <button onclick="alert('Add Member – coming next')">
+        ➕ Add Member
+      </button>
+
+      <button onclick="alert('View Payments – coming next')">
+        💰 View Maintenance Payments
+      </button>
+
+      <button onclick="alert('Salary Records – coming next')">
+        🧾 Salary Records
+      </button>
+
+      <button onclick="logout()" class="danger">
+        🚪 Logout
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
