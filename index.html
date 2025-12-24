@@ -1,25 +1,48 @@
-<script>
-const API = "https://pearl-enclave-backend.onrender.com";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pearl Enclave</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-function login() {
-  fetch(API + "/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id: document.getElementById("id").value,
-      role: document.getElementById("role").value
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (!data.success) return alert("Invalid Login");
+<body>
+  <h1 style="text-align:center;color:#f5a623;">🏢 Pearl Enclave</h1>
 
-    const role = document.getElementById("role").value;
-    if (role === "admin") location.href = "admin.html";
-    if (role === "security") location.href = "security.html";
-    if (role === "member") location.href = "member.html";
-  });
-}
-</script>
+  <div class="card">
+    <h2>Login</h2>
 
+    <input id="id" placeholder="Enter ID" />
+    
+    <select id="role">
+      <option value="admin">Admin</option>
+      <option value="security">Security</option>
+      <option value="member">Member</option>
+    </select>
+
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    const API = "https://pearl-enclave-backend.onrender.com";
+
+    function login() {
+      fetch(API + "/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: document.getElementById("id").value,
+          role: document.getElementById("role").value
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) {
+          alert("Invalid Login");
+          return;
+        }
+
+        const role = document.getElementById("role").value;
+        if (role === "admin") window.location.href = "admin.html";
+        if (role === "security"
 
